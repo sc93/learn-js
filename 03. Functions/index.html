@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person() {
+            // The Person() constructor defines `this` as itself.
+            this.age = 0;
+            // var self = this; .. es6 이전 this 바인딩
+            // setInterval(function growUp() {
+            //   // In nonstrict mode, the growUp() function defines `this` 
+            //   // as the global object, which is different from the `this`
+            //   // defined by the Person() constructor.
+            //   this.age++;
+            //   console.log(this.age);
+            // }, 1000);
+
+            // setInterval(()=>{
+            //     this.age++;
+            //     console.log(this.age);
+            // },1000);
+
+            setTimeout(function gw() {
+                console.log(this)
+            }, 1000)
+
+            setTimeout(() => {
+                console.log(this)
+            }, 1000)
+        }
+
+        var p = new Person();
+        function func() {
+            console.log(arguments)
+        }
+
+        func(1, 2, 3, 4, 5, 6, 7, 8);  // arguments 는 배열이 아닌 유사배열?(일반 Object)
+    </script>
+</body>
+
+</html>
